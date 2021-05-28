@@ -1,0 +1,225 @@
+{
+ "metadata": {
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": 3
+  },
+  "orig_nbformat": 2
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Notes: \n",
+    "\n",
+    "PMF (Probability Mass Function) - gives theprobability of observing each possible outcome (x) of the random variable\n",
+    "\n",
+    "PDF (Point Density Function) - The probability of an outcome xrelative to all other possible outcomes \n",
+    "\n",
+    "CDF (Cumulative Distibution Function) - or just distribution function is the probability of observing an outcome less than or equal to x\n",
+    "\n",
+    "Discrete -\n",
+    "\n",
+    "Uniform Distribution - Discrete, describes a situation with a finite number of outcomes, where each outcome is as equally likely as any other - k , n\n",
+    "\n",
+    "Bernoulli Distribution - Discrete, only two possible outputs, typically labeled as  0 and 1. (one flip of a coin) - k, p\n",
+    "\n",
+    "Binomial Distribution - counting, models flipping a fair or unfair coin some number of times, and counting how many times the coin lands on heads - k, n, p\n",
+    "\n",
+    "Hypergeometric Distribution - describes the probability of successes (random draws for which the object drawn has a specified feature) in \n",
+    "n draws, without replacement, from a finite population of size - n, k\n",
+    "\n",
+    "Poisson Distribution - a process where events happen at a fixed rate or frequency, and you're watching it for a fixed amount of time. Events must be independdent and identically distributed - lambda, e, k\n",
+    "\n",
+    "Continuous - \n",
+    "\n",
+    "Uniform Distribution -  describes a set of outcomes that are all equally likely, but this time any number in an interval isa possible output of the random variable\n",
+    "\n",
+    "Normal Distribution (Gaussian) - a function that represents the distribution of many random variables as a symmetrical bell-shaped graph\n",
+    "\n",
+    "Exponential Distribution - related to the Poisson Distribution, answers How much time will it take to observe the first event \n",
+    "\n",
+    "\n",
+    "\n",
+    "P value - the probability of obtaining test results at least as or more extreme than the results actually observed, under the assumption that the null hypothesis is correct.\n",
+    "\n",
+    "type 1 error, alpha error, or False Positive Error - when no difference but statistical test shows there is a difference. 5% (alpha = .05)\n",
+    "\n",
+    "type 2 error, beta error, or False Negative Error - when there is difference but statistical test shows there is not a difference. 20% (Statistical Power is 80)\n",
+    "\n",
+    "always know the tradeoff of consequences for type 1 vs type 2 error\n",
+    "\n",
+    "Central Limit Theorem - \n",
+    "\n",
+    "Central Tendency - \n",
+    "\n",
+    "z score - 1.96. 1.96 = 0.025 on two-tailed test\n",
+    "\n",
+    "alpha - rejection threshold for p value\n",
+    "\n",
+    "Statistical Power - affected by alpha size, effect size, sample size\n",
+    "\n",
+    "Specificity - type 1 - FP/N \n",
+    "\n",
+    "Sensitivity - type 2 - TP/P"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from string import punctuation\n",
+    "from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS\n",
+    "stopwords = ENGLISH_STOP_WORDS\n",
+    "from itertools import zip_longest\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "from scipy import stats\n",
+    "\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "%config InlineBackend.figure_format = 'retina'\n",
+    "plt.style.use('fivethirtyeight')"
+   ]
+  },
+  {
+   "source": [
+    "Scipy Stats Module"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Discrete Distributions\n",
+    "uniform_disc = stats.randint(low=0, high=10) # k = 0, 1 ....,9\n",
+    "bernoulli = stats.bernoulli(p=0.4)\n",
+    "binomial = stats.binom(n=50, p=0.4)\n",
+    "hypergeometric = stats.hypergeom(M=20, n=7, N=12) # non-standard parameters\n",
+    "poisson = stats.poisson(mu=5) #mu is the same as lambda"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Continuuous Distributions\n",
+    "uniform_cont = stats.uniform(loc=0, scale=10) # non-standard parameters\n",
+    "normal = stats.norm(loc=0.0, scale=1.0) # non-standard parameters\n",
+    "exponential = stats.expon(loc=2.0) # non-standard parameters\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ]
+}
